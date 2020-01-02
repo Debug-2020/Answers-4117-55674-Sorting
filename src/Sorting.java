@@ -70,39 +70,18 @@ public final class Sorting {
 		return a[right - 1];
 	}
 
-//	private static void quicksort(int[] a, int left, int right) {
-//		if (left + CUTOFF <= right) {
-//			int pivot = median3(a, left, right);
-//
-//			int i = left, j = right - 1;
-//			for (;;) {
-//				while (a[++i] < pivot) {
-//				}
-//				while (a[--j] > pivot) {
-//				}
-//				if (i < j)
-//					swap(a, i, j);
-//				else
-//					break;
-//			}
-//
-//			swap(a, i, right - 1); // Restore pivot
-//
-//			quicksort(a, left, i - 1); // Sort small elements
-//			quicksort(a, i + 1, right); // Sort large elements
-//		}
-//	}
+
 	private static void quicksort(int[] arr, int l, int r) {
-		int len = r;        // 存储当前数组的最后一个元素的坐标
-	    int num = arr[l];   // 用来存放枢轴元素
-	    int dir = 0;       // 用来表示移动方向
+		int len = r;        
+	    int num = arr[l];   
+	    int dir = 0;       
 
 	    /*一趟快速排序*/
 	    while (l != r)
 	    {
 	        if (dir == 0)
 	        {
-	            if (arr[r] < num)
+	            if (arr[r] <= num)
 	            {
 	                arr[l] = arr[r];
 	                dir = 1;
@@ -114,7 +93,7 @@ public final class Sorting {
 	        }
 	        else
 	        {
-	            if (arr[l] > num)
+	            if (arr[l] >= num)
 	            {
 	                arr[r] = arr[l];
 	                dir = 0;
@@ -125,7 +104,7 @@ public final class Sorting {
 	            }
 	        }
 	    }
-	    arr[l] = num;               // 将枢轴元素放入最终位置
+	    arr[l] = num;              
 	    if (l > 1)
 	    {
 	    	quicksort(arr, 0, l - 1);
@@ -135,70 +114,7 @@ public final class Sorting {
 	    	quicksort(arr, l + 1, len);
 	    }
 	}
-////llllllllllllllllllllllllllllllllllllllll
-//	#include <iostream>
-//
-//	void QuickSort(int *arr, int l, int r)
-//	{
-//	    int len = r;        // 存储当前数组的最后一个元素的坐标
-//	    int num = arr[l];   // 用来存放枢轴元素
-//	    bool dir = 0;       // 用来表示移动方向
-//
-//	    /*一趟快速排序*/
-//	    while (l != r)
-//	    {
-//	        if (dir == 0)
-//	        {
-//	            if (arr[r] < num)
-//	            {
-//	                arr[l] = arr[r];
-//	                dir = 1;
-//	            }
-//	            else
-//	            {
-//	                r--;
-//	            }
-//	        }
-//	        else
-//	        {
-//	            if (arr[l] > num)
-//	            {
-//	                arr[r] = arr[l];
-//	                dir = 0;
-//	            }
-//	            else
-//	            {
-//	                l++;
-//	            }
-//	        }
-//	    }
-//	    arr[l] = num;               // 将枢轴元素放入最终位置
-//	    if (l > 1)
-//	    {
-//	        QuickSort(arr, 0, l - 1);
-//	    }
-//	    if (len - l - 1 > 1)
-//	    {
-//	        QuickSort(arr, l + 1, len);
-//	    }
-//	}
-//
-//	int main()
-//	{
-//	    int arr[] = { 49, 38, 65, 97, 76, 13, 27, 49 };
-//	    int len = 8;
-//	    QuickSort(arr, 0, len - 1);
-//
-//	    for (int i = 0; i < len; i++)
-//	    {
-//	        std::cout << arr[i] << " ";
-//	    }
-//	    std::cout << std::endl;
-//	    system("pause");
-//	    return 0;
-//	}
-//	
-////
+
 	public static void insertionSort(int[] a, int left, int right) {
 		for (int p = left + 1; p <= right; p++) {
 			int tmp = a[p];
